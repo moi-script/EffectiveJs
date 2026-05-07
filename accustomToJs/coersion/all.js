@@ -106,5 +106,34 @@ const guessFn = (input) => ({
     }
 })
 
-console.log(5 + guessFn("10"))
-console.log(5 + guessFn(10))
+// console.log(5 + guessFn("10"))
+// console.log(5 + guessFn(10))
+
+
+
+const s1 = new String("Hello world");
+const s2 = new String("Hello world");
+const newS = "Hello World";
+
+console.log(s1);
+console.log(typeof s1); // object
+console.log(typeof newS); // string
+console.log(s1 === s2);
+
+
+
+
+// Avoid Using == with Mixed type 
+// == do some implicit coersion fist before appyling the logic
+
+const test1 = "10";
+const test2 = 10;
+
+// console.log(typeof(test1) === 'string');
+// console.log(test1 == test2);
+
+function isNone(value) {
+    return value == null; // this will ensure if either undefined or null 
+}
+// console.log(isNone());
+
