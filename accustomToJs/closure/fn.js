@@ -81,3 +81,48 @@ console.log('second value :: ', value()); // this is different compare to react 
 // it schedule re - render part that time we use setValue, it restart also allowing the new value of initial state 
 // to follow 
 
+
+
+
+
+// Mini state react 
+
+// global state for mini react
+
+let state;
+let index = 0;
+
+
+function useState(initialValue) {
+    const currrentIndex = index;
+
+    state ??= [];
+    state[currrentIndex] ??= initialValue;
+
+    function setState(newValue) {
+        state[currrentIndex] = newValue;
+
+        render();
+    }
+}
+
+function render() {
+    index = 0;
+    document.getElementById("app").innerHTML = App();
+}
+
+function App() {
+    const [count, setCount] = useState(0);
+
+    return `
+    <h1>Count --> ${count}</h1>
+    <button onclick="increment()">Update</button>
+    `
+}
+
+function increment() {
+    const [_, setCount] = useState(0); 
+    useState(state[0] + 1);
+}
+
+render();
